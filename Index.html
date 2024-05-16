@@ -1,0 +1,58 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de JSON en HTML</title>
+</head>
+<body>
+  <h1>Datos desde JSON</h1>
+
+  <div id="datos-container"></div>
+
+  <script>
+    // Crear un objeto JSON
+    var persona = {
+      "nombre": "Juan",
+      "edad": 30,
+      "ciudad": "Ejemplo City",
+      "intereses": ["programación", "música", "viajar"],
+      "contacto": {
+        "email": "juan@example.com",
+        "telefono": "123-456-7890"
+      }
+    };
+
+    // Convertir el objeto JSON a una cadena
+    var personaJSON = JSON.stringify(persona, null, 2);
+
+    // Mostrar los datos en la página
+    var datosContainer = document.getElementById("datos-container");
+    var pre = document.createElement("pre");
+    var codigo = document.createTextNode(personaJSON);
+    pre.appendChild(codigo);
+    datosContainer.appendChild(pre);
+
+    // Acceder a los datos individualmente
+    var nombre = persona.nombre;
+    var edad = persona.edad;
+    var intereses = persona.intereses.join(", ");
+    var email = persona.contacto.email;
+   
+    // Mostrar los datos individualmente en la página
+    datosContainer.innerHTML += "<p>Nombre: " + nombre + "</p>";
+    datosContainer.innerHTML += "<p>Edad: " + edad + "</p>";
+    datosContainer.innerHTML += "<p>Intereses: " + intereses + "</p>";
+    datosContainer.innerHTML += "<p>Email: " + email + "</p>";
+  </script>
+ Para acceder a la cadena JSON completa:
+ - Ruta: `http://tudominio.com/index.html`
+ - Acceso: Al abrir el archivo `index.html` en un navegador, verás la cadena JSON completa mostrada en la página.
+
+- Para acceder a los datos individualmente:
+ - Ruta: `http://tudominio.com/index.html`
+ - Acceso: Al abrir el archivo `index.html` en un navegador, verás los datos individuales de la persona mostrados debajo de la cadena JSON completa.
+
+</body>
+</html>
