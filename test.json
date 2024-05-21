@@ -1,0 +1,10 @@
+{
+    "nombre": "Juan",
+    "edad": 30,
+    "ciudad": "Ejemplo City",
+    "intereses": ["programación", "música", "viajar"],
+    "contacto": {
+      "email": "juan@example.com",
+      "telefono": "123-456-7890"
+    }
+  }

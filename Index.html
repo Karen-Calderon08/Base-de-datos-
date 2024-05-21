@@ -1,16 +1,10 @@
-```html
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ejemplo de JSON en HTML</title>
-</head>
-<body>
-  <h1>Datos desde JSON</h1>
-
-  <div id="datos-container"></div>
-
   <script>
     // Crear un objeto JSON
     var persona = {
@@ -24,27 +18,26 @@
       }
     };
 
+    const getData = async () => {
+      const res = await fetch('/test.json')
+      const data = await res.json()
+      var datosContainer = document.getElementById("datos-container");
+      datosContainer.innerHTML += "<p>Nombre: " + data.nombre + "</p>";
+    datosContainer.innerHTML += "<p>Edad: " + data.edad + "</p>";
+    datosContainer.innerHTML += "<p>Intereses: " + data.intereses + "</p>";
+    datosContainer.innerHTML += "<p>Email: " + data.email + "</p>";
+    }
+
+    getData()
     // Convertir el objeto JSON a una cadena
-    var personaJSON = JSON.stringify(persona, null, 2);
-
-    // Mostrar los datos en la página
-    var datosContainer = document.getElementById("datos-container");
-    var pre = document.createElement("pre");
-    var codigo = document.createTextNode(personaJSON);
-    pre.appendChild(codigo);
-    datosContainer.appendChild(pre);
-
-    // Acceder a los datos individualmente
-    var nombre = persona.nombre;
-    var edad = persona.edad;
-    var intereses = persona.intereses.join(", ");
-    var email = persona.contacto.email;
-   
-    // Mostrar los datos individualmente en la página
-    datosContainer.innerHTML += "<p>Nombre: " + nombre + "</p>";
-    datosContainer.innerHTML += "<p>Edad: " + edad + "</p>";
-    datosContainer.innerHTML += "<p>Intereses: " + intereses + "</p>";
-    datosContainer.innerHTML += "<p>Email: " + email + "</p>";
+    
   </script>
+</head>
+<body>
+  <h1>Datos desde JSON</h1>
+
+  <div id="datos-container"></div>
+
+  
 </body>
 </html>
